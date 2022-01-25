@@ -1,0 +1,12 @@
+button:nth-child(odd) {
+    background-color: red;
+}
+button:nth-child(even) {
+    background-color: rgb(18, 119, 23);
+}
+
+button{
+    border-radius: 20%;
+    border-color: white;
+    padding: 20px;
+}
