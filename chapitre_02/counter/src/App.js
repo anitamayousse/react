@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "./styles/global.css"
+import Counter from "./components/Counter";
+import  "./styles/global.css"
 class App extends React.Component {
   constructor() {
     super();
@@ -24,3 +25,31 @@ class App extends React.Component {
 }
 
 export default App
+
+
+/*version 2 not working*/
+/*
+class App extends React.Component  {
+
+
+  constructor() {
+    super();
+    this.state = { 
+      count:0
+    };
+  }
+  render (){
+  return (
+    <div className="app">
+      <div>
+        </div>
+        <div class="buttons">
+          <Counter  increment  />
+        </div>
+    </div>
+  );
+}
+}
+export default App
+
+*/
