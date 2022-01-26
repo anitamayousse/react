@@ -1,7 +1,7 @@
 import React from "react";
 import Counter from "./components/Counter";
 import  "./styles/global.css"
-class App extends React.Component {
+/*class App extends React.Component {
   constructor() {
     super();
 
@@ -24,11 +24,11 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default App*/
 
 
 /*version 2 not working*/
-/*
+
 class App extends React.Component  {
 
 
@@ -40,16 +40,24 @@ class App extends React.Component  {
   }
   render (){
   return (
-    <div className="app">
-      <div>
-        </div>
-        <div class="buttons">
-          <Counter  increment  />
-        </div>
+    <div>
+      <h1>Counter</h1>
+      <Counter 
+      count= {this.state.count}
+      increment = {() => {this.setState((prevState) =>{
+        return {
+          count: prevState.count +1,
+            };
+          });
+      }} 
+      substract = {() => {this.setState((prevState) =>{
+        return {
+          count: prevState.count - 1,
+            };
+          });
+      }}/>
     </div>
   );
 }
 }
 export default App
-
-*/
