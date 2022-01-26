@@ -27,7 +27,7 @@ import  "./styles/global.css"
 export default App*/
 
 
-/*version 2 not working*/
+/*version 2 working*/
 
 class App extends React.Component  {
 
