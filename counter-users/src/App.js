@@ -16,43 +16,43 @@ class App extends React.Component {
     this.increment = this.increment.bind(this);
     this.substract = this.substract.bind(this);
   }
-increment(){
+  increment(){
   this.setState((prevState) => {
     return {
       count: prevState.count +1,
     };
   });
-}
+  }
 
-substract(){
+  substract(){
   this.setState((prevState) => {
-    return {
-      count: prevState.count -1,
-    };
+  return {
+  count: prevState.count -1,
+  };
   });
-}
+  }
   render (){
 
-    const userNumber = this.state.count;
-    return <div>
-      <Counter
-      count ={this.state.count}
-      increment ={this.increment}
-      substract = {this.substract}/>
-      {
-        users.map((user, i) =>{
-          if (i < userNumber){
-          return (
-        <UserInfo
-          key ={user.id}
-            id ={user.id}
-            name={user.name}
-            email ={user.email}
-          />
-          );
-        }
-      })}
-    </div>
+  const userNumber = this.state.count;
+  return <div>
+    <Counter
+    count ={this.state.count}
+    increment ={this.increment}
+    substract = {this.substract}/>
+    {
+      users.map((user, i) =>{
+        if (i < userNumber){
+        return (
+      <UserInfo
+        key ={user.id}
+          id ={user.id}
+          name={user.name}
+          email ={user.email}
+        />
+        );
+      }
+    })}
+  </div>
   }
 }
 
