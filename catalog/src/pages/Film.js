@@ -6,11 +6,13 @@ class Film extends React.Component {
 	render() {
 		return (
 			<div>
-				<h2>About the movie</h2>
+				<h2>List:</h2>
 				 {List.map(element =>
                     { return (
                     <>
-                    <p>{ element.title}</p>
+					<ul>
+                    <Link to={`/film/${List.id}`}>{element.title}</Link>
+					</ul>
                     </>
                 )})}
 				<Link to="/">Back to homepage</Link>
