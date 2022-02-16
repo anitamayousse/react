@@ -1,19 +1,29 @@
-import React from "react";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import './App.css';
-import Home from "./pages/Home";
-import Film from "./pages/Film";
+import React from 'react'
+import { BrowserRouter, Switch, Route } from "react-router-dom"
+
+import List from "./pages/List"
+import Movie from "./pages/Movie"
+
 
 class App extends React.Component {
+  
+
   render() {
-    return (
-			<BrowserRouter>
-				<Switch>
-          <Route exact path="/" component={Home} />
-					<Route exact path="/film" component={Film} />
-				</Switch>
-			</BrowserRouter>
+    return ( 
+      <BrowserRouter>
+
+            <Switch>
+              {/* List of movies */}
+              <Route exact path="/" component={List} />
+
+              {/* Info of movie */}
+              <Route path="/movie/:id" component={Movie} />
+
+            </Switch>
+
+      </BrowserRouter>
     )
+          
   }
 }
 
