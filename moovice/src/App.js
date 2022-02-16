@@ -8,6 +8,7 @@ import WeeklyBattle from './pages/weeklybattle'
 import Popular from './pages/popular'
 import PopularBattle from './pages/popularbattle'
 import Favorites from './pages/favorites'
+
 class App extends Component {
   render() {
     return (
