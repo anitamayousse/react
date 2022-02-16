@@ -8,17 +8,31 @@ import WeeklyBattle from './pages/weeklybattle'
 import Popular from './pages/popular'
 import PopularBattle from './pages/popularbattle'
 import Favorites from './pages/favorites'
-export class App extends Component {
+class App extends Component {
   render() {
     return (
       <BrowserRouter>
       <nav>
-        <Link to="/">Homepage|</Link>
-        <Link to="/weekly">weekly|</Link>
-        <Link to="/weeklybattle">weekly-battle</Link>
+        <ul>
+          <li>
+        <Link to="/">Homepage</Link>
+          </li>
+          <li>
+        <Link to="/weekly">Weekly</Link>
+          </li>
+          <li>
+        <Link to="/weeklybattle">Weekly-battle</Link>
+          </li>
+          <li>
         <Link to="/popular">Popular</Link>
+          </li>
+          <li>
         <Link to="/popularbattle">Popular-battle</Link>
+          </li>
+          <li>
         <Link to="/favorites">Favorites</Link>
+          </li>
+        </ul>
       </nav>
 
       <Switch>
