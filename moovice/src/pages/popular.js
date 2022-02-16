@@ -24,15 +24,15 @@ export class Popular extends Component {
   render() {
     return (
 
-			<div>
-				<h2>List:</h2>
-        {this.state.movies.map((movie) => (
+			<div className='container'>
+				<h2 className='text-center'>Popular</h2>
+        {this.state.movies.map((movie,index) => (
           <List                     
             image={movie.poster_path}
             title={movie.title}
             release_date={movie.release_date}
             overview={movie.overview}
-            key={movie} />
+            key={index} />
           ))}
 				<Link to="/">Back to homepage</Link>
 			</div>

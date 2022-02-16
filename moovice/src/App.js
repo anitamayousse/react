@@ -2,12 +2,19 @@ import React, { Component } from 'react'
 
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
+// Pages
 import Home from './pages/home'
 import Weekly from './pages/weekly'
 import WeeklyBattle from './pages/weeklybattle'
 import Popular from './pages/popular'
 import PopularBattle from './pages/popularbattle'
 import Favorites from './pages/favorites'
+
+
+// BOOTSTRAP
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import "./App.css"
 
 class App extends Component {
   render() {
