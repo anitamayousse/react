@@ -6,7 +6,8 @@ export class popularbattle extends Component {
       super();
       this.state = {
         movies:[],
-        currentBattle: 0
+        currentBattle: 0,
+        favorites: JSON.parse(localStorage.getItem("favorites")),
       };
       this.handleClick = this.handleClick.bind(this)
     }
@@ -19,7 +20,7 @@ export class popularbattle extends Component {
           this.setState({
             movies:[...data.results
             ],
-            currentBattle: this.state.currentBattle + 1})
+            currentBattle: this.state.currentBattle})
         })
   }
 
@@ -40,6 +41,7 @@ export class popularbattle extends Component {
 
     
   render() {
+    if( this.state.movies.length !== 0 ){
     return (
       <div className='container'> 
       <h2 className='text-center'>Popular-Battle</h2>
@@ -66,7 +68,13 @@ export class popularbattle extends Component {
       <Link to="/">Back to homepage</Link>
     </div>
     )
+  }else{
+    return (
+      <div>
+        <p>“Vous avez parcouru tous les films !”</p>
+      </div>
+    )
   }
-}
+}}
 
 export default popularbattle
