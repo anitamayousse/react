@@ -19,14 +19,11 @@ export class popularbattle extends Component {
           this.setState({
             movies:[...data.results
             ],
-            currentBattle: 0})
+            currentBattle: this.state.currentBattle + 1})
         })
   }
 
-    componentDidUpdate(prevProps, prevState) {
 
-      console.log(prevState, this.state);
-    }
 
 
     handleClick(){
@@ -37,23 +34,34 @@ export class popularbattle extends Component {
         this.setState({
           movies:[...data.results
           ],
-          currentBattle: 0})
+          currentBattle: this.state.currentBattle + 1})
       })
     }
 
     
   render() {
     return (
-      <div>
-      <h2>List:</h2>
-      {this.state.movies.slice(0,2).map((movie, index) => (
+      <div className='container'> 
+      <h2 className='text-center'>Popular-Battle</h2>
+      {this.state.movies.splice(0,1).map((index) => (
         <List        
           onClick={() => this.handleClick()}             
-          image={movie.poster_path}
-          title={movie.title}
-          release_date={movie.release_date}
-          overview={movie.overview}
+          image={this.state.movies[this.state.currentBattle].poster_path}
+          title={this.state.movies[this.state.currentBattle].title}
+          release_date={this.state.movies[this.state.currentBattle].release_date}
+          overview={this.state.movies[this.state.currentBattle].overview}
           key={index} />
+        
+        ))}
+        {this.state.movies.splice(0,1).map((index) => (
+        <List        
+          onClick={() => this.handleClick()}             
+          image={this.state.movies[this.state.currentBattle+1].poster_path}
+          title={this.state.movies[this.state.currentBattle+1].title}
+          release_date={this.state.movies[this.state.currentBattle+1].release_date}
+          overview={this.state.movies[this.state.currentBattle+1].overview}
+          key={index} />
+        
         ))}
       <Link to="/">Back to homepage</Link>
     </div>
