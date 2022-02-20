@@ -9,7 +9,8 @@ export class weeklybattle extends Component {
       this.state = {
         movies:[],
         currentBattle: 0,
-        favorites: JSON.parse(localStorage.getItem("favorites")),
+        isLoaded: false,
+        favorites: JSON.parse(localStorage.getItem("favorite")) || [],
       };
       this.handleClick = this.handleClick.bind(this)
     }
@@ -22,7 +23,7 @@ export class weeklybattle extends Component {
           this.setState({
             movies:[...data.results
             ],
-            currentBattle: this.state.currentBattle})
+            isLoaded: true})
         })
   }
 
@@ -44,45 +45,48 @@ export class weeklybattle extends Component {
         this.setState({
           movies:[...data.results
           ],
-          currentBattle: this.state.currentBattle + 1})
+          currentBattle: this.state.currentBattle + 1,
+          favorites: [...this.state.favorites]},
+          localStorage.setItem("favorites", JSON.stringify([...this.state.favorites])),
+      
+          console.log("localeStorage", localStorage),
+          )
       })
+          console.log("id", this.state.movies[this.state.currentBattle]);
+      
     }
 
     
-  render() {
-    if( this.state.movies.length !== 0 ){
+  render()  {
+    const movies = this.state.movies;
+    const currentBattle = this.state.currentBattle;
+    if( this.state.isLoaded === true && currentBattle <= 18){
     return (
       <div className='container'> 
-      <h2 className='text-center'>Popular-Battle</h2>
-      {this.state.movies.splice(0,1).map((index) => (
+      <h2 className='text-center'>Weekly-Battle</h2>
         <List        
-          onClick={() => this.handleClick()}             
-          image={this.state.movies[this.state.currentBattle].poster_path}
-          title={this.state.movies[this.state.currentBattle].title}
-          release_date={this.state.movies[this.state.currentBattle].release_date}
-          overview={this.state.movies[this.state.currentBattle].overview}
-          key={index} />
-        
-        ))}
-        {this.state.movies.splice(0,1).map((index) => (
+          onClick={() => this.handleClick(movies[currentBattle])}             
+          image={movies[currentBattle].poster_path}
+          title={movies[currentBattle].title}
+          release_date={movies[currentBattle].release_date}
+          overview={movies[currentBattle].overview} />
         <List        
-          onClick={() => this.handleClick()}             
-          image={this.state.movies[this.state.currentBattle+1].poster_path}
-          title={this.state.movies[this.state.currentBattle+1].title}
-          release_date={this.state.movies[this.state.currentBattle+1].release_date}
-          overview={this.state.movies[this.state.currentBattle+1].overview}
-          key={index} />
-        
-        ))}
-      <Link to="/">Back to homepage</Link>
+          onClick={() => this.handleClick(movies[currentBattle])}             
+          image={movies[currentBattle+1].poster_path}
+          title={movies[currentBattle+1].title}
+          release_date={movies[currentBattle+1].release_date}
+          overview={movies[currentBattle+1].overview} />
+          <Link to="/">Back to homepage</Link>
+
     </div>
     )
-  }else{
+  } else {
     return (
       <div>
         <p>“Vous avez parcouru tous les films !”</p>
+        <Link to="/">Back to homepage</Link>
       </div>
-    )
+    );
   }
 }}
 
