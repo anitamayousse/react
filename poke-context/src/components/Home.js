@@ -1,15 +1,14 @@
-import { createContext, useState, useEffect } from "react";
-
-export const UserContext = createContext({
-  isLogged: true,
-});
-
+import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { UserContext } from "../App";
+import { Link } from "react-router-dom";
 function randomNumber() {
   return Math.floor(Math.random() * 100) + 1
 }
 function Home() {
     const [pokemon, setPokemon] = useState();
     const [randomPokemon , setRandomPokemon] = useState(1);
+    const {isLogged} = useContext(UserContext);
     useEffect(() => {
       setTimeout(() =>{
         fetch(`https://pokeapi.co/api/v2/pokemon/${randomPokemon}`)
@@ -26,7 +25,8 @@ function Home() {
     const handleClick = () => {
       setRandomPokemon(randomNumber());
     }
-  return pokemon ? (
+    if (isLogged){
+  return pokemon ?(
     <>
     <div className="bg-poke">
         <h4>You are logged in</h4>
@@ -36,9 +36,18 @@ function Home() {
         <button onClick={handleClick}>get new</button>
     </div>
     </>
-  ): (
+  ):(
     <p>Loading...</p>
   )
+    }
+  else{
+    return(
+      <Link  to="/login">
+      <h1> Login </h1>
+      </Link>
+    
+    )
+  }
 }
 
 export default Home;
