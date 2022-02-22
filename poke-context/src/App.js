@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import './App.css';
+//css
+import styled from 'styled-components';
+import 'bootstrap/dist/css/bootstrap.css';
+//Router
+import Home from './components/Home'
+import Login from './components/Login';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+    <div className='bg-black'>
+    <nav className="nav navbar-nav flex-row-reverse">
+      <Ul className='d-flex'>
+        <li>
+          <Link to="/" className='text-link'>Home</Link>
+        </li>
+        <li>
+          <Link to="/Login" className='text-link'>Login</Link>
+        </li>
+      </Ul>
+    </nav>
     </div>
+    <Switch>
+    <Route exact path="/" component={Home} />
+    <Route exact path="/Login" component={Login} />
+    </Switch>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+const Ul = styled.li`
+  padding: 30px;
+  list-style: none;
+  gap: 12px;
+  `;
