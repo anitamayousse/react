@@ -1,14 +1,31 @@
+import { createContext, useState } from "react";
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import './App.css';
 //css
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.css';
-//Router
+//Pages
 import Home from './components/Home'
 import Login from './components/Login';
 
+export const UserContext = createContext({
+  isLogged: true,
+});
+
 function App() {
+
+  const setAuth = () => {
+    setLogged(() => ({
+      isLogged: isLogged,
+      setLogged:setLogged
+    }));
+    console.log(isLogged, setAuth);
+  }
+  
+  const [isLogged, setLogged ] = useState(false);
+
   return (
+    <UserContext.Provider value={{isLogged, setAuth}}>
     <BrowserRouter>
     <div className='bg-black'>
     <nav className="nav navbar-nav flex-row-reverse">
@@ -27,6 +44,7 @@ function App() {
     <Route exact path="/Login" component={Login} />
     </Switch>
     </BrowserRouter>
+    </UserContext.Provider>
   );
 }
 

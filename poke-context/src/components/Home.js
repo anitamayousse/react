@@ -1,4 +1,8 @@
-import { useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
+
+export const UserContext = createContext({
+  isLogged: true,
+});
 
 function randomNumber() {
   return Math.floor(Math.random() * 100) + 1
