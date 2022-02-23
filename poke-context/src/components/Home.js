@@ -43,7 +43,7 @@ function Home() {
   else{
     return(
       <Link  to="/login">
-      <h1> Login </h1>
+      <h1> You need to be logged in first </h1>
       </Link>
     
     )
