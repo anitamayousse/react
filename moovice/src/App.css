@@ -1,6 +1,14 @@
 img{
-  width: 50%;
+  width: auto;
+  height: 15rem;
+  margin-left: 25%;
+  margin-bottom: 12%;
 }
 button{
   display:contents;
+}
+.hero{
+  background-image: url("you-1024x640.jpeg");
+  background-repeat: no-repeat;
+  height: 640px;
 }

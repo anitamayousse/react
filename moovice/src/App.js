@@ -13,6 +13,7 @@ import Favorites from './pages/favorites'
 
 // BOOTSTRAP
 import "bootstrap/dist/css/bootstrap.min.css";
+import styled from 'styled-components';
 
 import "./App.css"
 
@@ -21,7 +22,7 @@ export class App extends Component {
     return (
       <BrowserRouter>
       <nav>
-        <ul>
+        <Ul className='d-flex'>
           <li>
         <Link to="/">Homepage</Link>
           </li>
@@ -40,7 +41,7 @@ export class App extends Component {
           <li>
         <Link to="/favorites">Favorites</Link>
           </li>
-        </ul>
+        </Ul>
       </nav>
 
       <Switch>
@@ -57,3 +58,10 @@ export class App extends Component {
 }
 
 export default App
+
+const Ul = styled.li`
+  padding: 30px 140px;
+  list-style: none;
+  gap: 12px;
+  background-color:black;
+  `;

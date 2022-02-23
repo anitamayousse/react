@@ -6,8 +6,7 @@ export class List extends Component {
   render() {
     return (
       <>
-      <div className='row py-5'>
-            <div className='d-flex py-2'>
+            <div className=''>
             <button onClick={this.props.onClick }>
                 <img
                   src={
@@ -16,7 +15,7 @@ export class List extends Component {
                   alt="img"
                 />
               </button>
-            <div className='py-5 text-center'>
+            <div className='text-center' >
                 <h5>{this.props.title}</h5>
                 <p>
                   {this.props.overview}
@@ -26,7 +25,6 @@ export class List extends Component {
               </p>
               </div>
             </div>
-          </div>
       </>
     );
   }

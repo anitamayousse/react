@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import List from "../components/List"
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; 
+
 export class popularbattle extends Component {
     constructor(){
       super();
@@ -8,7 +9,6 @@ export class popularbattle extends Component {
         movies:[],
         currentBattle: 0,
         isLoaded: false,
-        value: null,
         favorites: JSON.parse(localStorage.getItem("favorite")) || [],
       };
       this.handleClick = this.handleClick.bind(this)
@@ -52,20 +52,26 @@ export class popularbattle extends Component {
     if( this.state.isLoaded === true && currentBattle <= 18){
     return (
       <div className='container'> 
-      <h2 className='text-center'>Popular-Battle</h2>
+      <h2 className='text-center py-5'>Popular-Battle</h2>
+      <div className='row'>
+        <div className='col-6'>
         <List        
           onClick={() => this.handleClick(movies[currentBattle])}             
           image={movies[currentBattle].poster_path}
           title={movies[currentBattle].title}
           release_date={movies[currentBattle].release_date}
           overview={movies[currentBattle].overview} />
+        </div>
+        <div className='col-6'>
         <List        
           onClick={() => this.handleClick(movies[currentBattle])}             
           image={movies[currentBattle+1].poster_path}
           title={movies[currentBattle+1].title}
           release_date={movies[currentBattle+1].release_date}
           overview={movies[currentBattle+1].overview} />
-          <Link to="/">Back to homepage</Link>
+        </div>
+        <Link to="/">Back to homepage</Link>
+      </div>
 
     </div>
     )
@@ -80,3 +86,6 @@ export class popularbattle extends Component {
 }}
 
 export default popularbattle
+
+//css
+
