@@ -9,7 +9,7 @@ import Home from './components/Home'
 import Login from './components/Login';
 
 export const UserContext = createContext({
-  isLogged: true,
+  isLogged: false,
 });
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
       isLogged: isLogged,
       setLogged:setLogged
     }));
-    console.log(isLogged, setAuth);
+
   }
   
   const [isLogged, setLogged ] = useState(false);
